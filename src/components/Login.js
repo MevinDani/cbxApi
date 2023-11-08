@@ -1,7 +1,45 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import './Login.css'
 
 const Login = () => {
+
+    const [data, setData] = useState(null);
+
+    const [userData, setUserData] = useState({
+        username: "",
+        password: ""
+    })
+
+    useEffect(() => {
+        // Define the URL you want to request
+        const url = 'https://cubixweberp.com:164/api/Login/UserLogin?cmpcode=PENDULUM&guid=E42B163B-C03A-43D6-AFE1-31FBCEEAEB81&user=ADMIN&pass=ADM';
+
+        // Make the HTTP request
+        fetch(url)
+            .then(response => response.json())
+            .then(data => setData(data))
+            .catch(error => console.error('Error:', error));
+    }, []);
+
+    console.log(data)
+
+    const handleLogin = (e) => {
+        e.preventDefault()
+        if (userData.username && userData.password) {
+            // Define the URL you want to request
+            const url = `https://cubixweberp.com:164/api/Login/UserLogin?cmpcode=PENDULUM&guid=E42B163B-C03A-43D6-AFE1-31FBCEEAEB81&user=${userData.username}&pass=${userData.password}`;
+
+            // Make the HTTP request
+            fetch(url)
+                .then(response => response.json())
+                .then(data => setData(data))
+                .catch(error => console.error('Error:', error));
+        }
+    }
+
+    console.log(data)
+    console.log(userData.username, userData.password)
+
     return (
         <div class="login-page">
             <div class="form">
@@ -19,9 +57,9 @@ const Login = () => {
                 {/*  */}
 
                 <form class="login-form">
-                    <input type="text" placeholder="username" />
-                    <input type="password" placeholder="password" />
-                    <button>login</button>
+                    <input type="text" placeholder="username" required onChange={(e) => setData} />
+                    <input type="password" placeholder="password" required />
+                    <button onClick={(e) => handleLogin(e)}>login</button>
                     <p class="message">Not registered? <a href="#">Create an account</a></p>
                 </form>
             </div>

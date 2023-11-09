@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Login.css'
+import { useNavigate } from 'react-router-dom';
+import { RotatingLines } from 'react-loader-spinner'
+
 
 const Login = () => {
 
@@ -10,35 +13,50 @@ const Login = () => {
         password: ""
     })
 
-    useEffect(() => {
-        // Define the URL you want to request
-        const url = 'https://cubixweberp.com:164/api/Login/UserLogin?cmpcode=PENDULUM&guid=E42B163B-C03A-43D6-AFE1-31FBCEEAEB81&user=ADMIN&pass=ADM';
+    const [loginError, setLoginError] = useState(null)
 
-        // Make the HTTP request
-        fetch(url)
-            .then(response => response.json())
-            .then(data => setData(data))
-            .catch(error => console.error('Error:', error));
-    }, []);
+    const [loginClick, setLoginClick] = useState(false)
 
-    console.log(data)
+    const navigate = useNavigate()
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setUserData({
+            ...userData,
+            [name]: value
+        });
+    }
+
+    // console.log(data)
 
     const handleLogin = (e) => {
         e.preventDefault()
         if (userData.username && userData.password) {
-            // Define the URL you want to request
+            setLoginClick(true)
+            setUserData({
+                username: "",
+                password: ""
+            });
+
             const url = `https://cubixweberp.com:164/api/Login/UserLogin?cmpcode=PENDULUM&guid=E42B163B-C03A-43D6-AFE1-31FBCEEAEB81&user=${userData.username}&pass=${userData.password}`;
 
-            // Make the HTTP request
             fetch(url)
                 .then(response => response.json())
-                .then(data => setData(data))
+                .then((data) => {
+                    setData(data)
+                    if (data[0].UserRights !== null) {
+                        navigate('/panel')
+                    } else {
+                        setLoginError('Invalid UserName or Password')
+                        setLoginClick(false)
+                    }
+                })
                 .catch(error => console.error('Error:', error));
         }
     }
 
-    console.log(data)
-    console.log(userData.username, userData.password)
+    // console.log(data)
+    // console.log(userData.username, userData.password)
 
     return (
         <div class="login-page">
@@ -57,9 +75,37 @@ const Login = () => {
                 {/*  */}
 
                 <form class="login-form">
-                    <input type="text" placeholder="username" required onChange={(e) => setData} />
-                    <input type="password" placeholder="password" required />
-                    <button onClick={(e) => handleLogin(e)}>login</button>
+                    {
+                        loginError && (
+                            <div className='errorMsg'>
+                                {loginError}
+                            </div>
+                        )
+                    }
+                    <input type="text" placeholder="username" required name="username"
+                        value={userData.username}
+                        onChange={handleInputChange} />
+                    <input type="password" placeholder="password" required name="password"
+                        value={userData.password}
+                        onChange={handleInputChange} />
+
+                    {
+                        !loginClick ? <button onClick={(e) => handleLogin(e)}>login</button> : <RotatingLines
+                            strokeColor="green"
+                            strokeWidth="5"
+                            animationDuration="0.75"
+                            width="40"
+                            visible={true}
+                        />
+                    }
+                    {/* <RotatingLines
+                        strokeColor="green"
+                        strokeWidth="5"
+                        animationDuration="0.75"
+                        width="96"
+                        visible={true}
+                    />
+                    <button onClick={(e) => handleLogin(e)}>login</button> */}
                     <p class="message">Not registered? <a href="#">Create an account</a></p>
                 </form>
             </div>

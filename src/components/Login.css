@@ -117,3 +117,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 } */
+
+.errorMsg {
+    font-weight: bold;
+    color: red;
+    margin-bottom: 12px;
+}

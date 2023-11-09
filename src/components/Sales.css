@@ -1,0 +1,246 @@
+.TSSaleswrapper {
+    background-color: rgb(138, 232, 255);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.TSCont {
+    width: 40%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 20px 30px;
+}
+
+.TSMAINDROP {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.TSDropCont {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.TSDropItems {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 38%;
+    padding-right: 36px;
+    padding-top: 8px;
+}
+
+.TSDropItems .TSDText {
+    font-size: 26px;
+    color: #7F7F7F;
+    border: none;
+}
+
+.TSDropDown {
+    font-size: 20px;
+    color: #7F7F7F;
+    text-align: end;
+    width: 30%;
+}
+
+.TSDropDownCont {
+    padding-left: 30px;
+}
+
+.TSDropDownText {
+    border-bottom: 1px solid #7F7F7F;
+}
+
+.TSDropDownText:hover {
+    color: #000000;
+    cursor: pointer;
+}
+
+
+.TSDropItems .fa-solid {
+    padding-bottom: 12px;
+}
+
+.TSSalesCont {
+    display: flex;
+    justify-content: flex-start;
+    height: 80%;
+}
+
+.TSSalesItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    width: 60%;
+    /* padding-left: 10%; */
+}
+
+.TSSalesItems .TSText {
+    font-size: 32px;
+    color: #107F6A;
+}
+
+.TSSalesItems .TSNum {
+    font-size: 38px;
+    font-weight: bold;
+    color: #107F6A;
+}
+
+.TSSalesButton {
+    padding: 15px 42px;
+    background-color: #2FB69D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.TSSalesButton:hover {
+    background-color: #13e6bf;
+    ;
+    /* Darker blue color on hover */
+}
+
+.TSMAINDROP {
+    position: relative;
+}
+
+.TSDropDown {
+    position: absolute;
+    top: 100%;
+    left: 100;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+    width: 30%;
+    background-color: white;
+    /* Add a background color to dropdown for visibility */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a shadow for separation */
+}
+
+@media (max-width:1157px) {
+    .TSDropDown {
+        width: 45%;
+    }
+}
+
+@media (max-width:1036px) {
+    /* .TSDropDown {
+        width: 50%;
+    } */
+
+    .TSDropItems .TSDText {
+        font-size: 22px;
+        /* Adjust font size for tablets */
+    }
+}
+
+/* For Tablets (e.g., iPad) */
+@media (max-width: 768px) {
+    .TSCont {
+        width: 60%;
+        /* Adjust width for tablets */
+        height: auto;
+        /* Adjust height if needed */
+    }
+
+    .TSDropItems {
+        width: 50%;
+        /* Adjust width for tablets */
+        padding-right: 20px;
+        /* Adjust padding if needed */
+    }
+
+    .TSDropItems .TSDText {
+        font-size: 22px;
+        /* Adjust font size for tablets */
+    }
+
+    .TSSalesItems .TSText {
+        font-size: 28px;
+        /* Adjust font size for tablets */
+    }
+
+    .TSSalesItems .TSNum {
+        font-size: 32px;
+        /* Adjust font size for tablets */
+    }
+
+    .TSSalesButton {
+        font-size: 20px;
+        /* Adjust font size for tablets */
+    }
+
+    .TSDropDownCont .TSDropDownText {
+        font-size: 18px;
+    }
+}
+
+/* For Mobile Devices (e.g., iPhone) */
+@media (max-width: 480px) {
+    .TSCont {
+        width: 80%;
+        /* Adjust width for mobile devices */
+        height: auto;
+        padding: 22px;
+        /* Allow height to be flexible for mobile devices */
+    }
+
+    .TSDropItems {
+        width: 100%;
+        /* Adjust width for mobile devices */
+        padding-right: 22px;
+        /* Adjust padding if needed */
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .TSDropItems .TSDText {
+        font-size: 20px;
+        /* Adjust font size for mobile devices */
+    }
+
+    .TSDropItems .fa-solid {
+        margin-left: 8px;
+    }
+
+    .TSDropDownCont .TSDropDownText {
+        font-size: 18px;
+    }
+
+    .TSDropDownCont {
+        padding-left: 24px;
+        width: 80%;
+    }
+
+    .TSSalesItems {
+        width: 100%;
+        /* Adjust width for mobile devices */
+        padding-left: 2%;
+        /* Adjust padding if needed */
+    }
+
+    .TSSalesItems .TSText {
+        font-size: 24px;
+        /* Adjust font size for mobile devices */
+    }
+
+    .TSSalesItems .TSNum {
+        font-size: 28px;
+        /* Adjust font size for mobile devices */
+    }
+
+    .TSSalesButton {
+        font-size: 18px;
+        /* Adjust font size for mobile devices */
+        margin-top: 8px;
+        /* Adjust margin-top for mobile devices */
+    }
+}

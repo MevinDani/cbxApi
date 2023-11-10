@@ -76,7 +76,7 @@ const TodaySales = () => {
                             justifyContent: 'center',
                         }}
                     >
-                        <Box sx={{ width: 300, bgcolor: '#8AE8FF', outline: 'none', p: 2, height: '300px', overflowY: 'scroll' }}>
+                        <Box sx={{ width: 300, bgcolor: '#C2F3FF', outline: 'none', p: 2, height: '300px', overflowY: 'scroll' }}>
                             <Typography id="modal-modal-title" variant="h6" component="h2">
                                 Sales Data
                             </Typography>

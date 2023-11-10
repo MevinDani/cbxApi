@@ -29,8 +29,8 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 38%;
-    padding-right: 36px;
+    width: 50%;
+    padding-right: 8px;
     padding-top: 8px;
 }
 
@@ -38,6 +38,23 @@
     font-size: 26px;
     color: #7F7F7F;
     border: none;
+}
+
+.TSDropItems .TSDText {
+    font-size: 26px;
+    color: #7F7F7F;
+    border: none;
+}
+
+.TSDropItems .TSDText .TSList {
+    font-size: 20px;
+    color: #7F7F7F;
+    border: none;
+}
+
+.TSDropItems .TSDText .TSList:hover {
+    color: #000000;
+    cursor: pointer;
 }
 
 .TSDropDown {
@@ -85,6 +102,16 @@
     color: #107F6A;
 }
 
+.TSDropItems .TSDText:hover {
+    cursor: pointer;
+    color: #000000;
+}
+
+.TSDrop:hover {
+    cursor: pointer;
+    color: #000000;
+}
+
 .TSSalesItems .TSNum {
     font-size: 38px;
     font-weight: bold;
@@ -123,6 +150,36 @@
     /* Add a background color to dropdown for visibility */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     /* Optional: Add a shadow for separation */
+}
+
+/* modal styles */
+.salesModelCont {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: #FFFFFF;
+}
+
+.salesDeptNo,
+.salesDeptName,
+.salesName {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+}
+
+.salesDeptNoText,
+.salesDeptNameText,
+.salesNameText {
+    color: #107F6A;
+}
+
+.salesDeptNoNum,
+.salesDeptNameNum,
+.salesNameNum {
+    color: #FF6A32;
 }
 
 @media (max-width:1157px) {
